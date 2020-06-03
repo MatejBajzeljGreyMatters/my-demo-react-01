@@ -33,7 +33,7 @@ class Users extends Component {
   render() {
     const users = this.state.users.map((user, i) => {
       return (
-        <li key={user.id}>
+        <li key={user.id} className="collection-item">
           {user.name}, {user.address + " - " + user.city}{" "}
         </li>
       );
@@ -42,7 +42,7 @@ class Users extends Component {
     return (
       <div>
         <h1>Users</h1>
-        {users}
+        <ul className="collection">{users}</ul>
       </div>
     );
   }
