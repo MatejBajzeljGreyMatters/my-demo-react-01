@@ -32,6 +32,11 @@ class UserProfile extends Component {
     if (user) {
       return (
         <div>
+          <br />
+          <Link to="/users" className="btn grey left">
+            Back
+          </Link>
+          <br />
           <h2>{user.name}</h2>
           <ul className="collection">
             <li className="collection-item">Address: {user.address}</li>
