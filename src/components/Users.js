@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import User from "./User";
+import { C } from "../helpers/utils";
 
 class Users extends Component {
   constructor() {
@@ -10,15 +12,14 @@ class Users extends Component {
   }
 
   componentDidMount = async () => {
-    await this.getUsers();
+    this.getUsers();
     console.log("Users in state", this.state.users);
   };
 
   getUsers = async () => {
     try {
-      const res = await axios.get(
-        "https://5ed7873c152c310016d851c7.mockapi.io/users"
-      );
+      console.log(C.API_URL + C.API_PATH_USERS);
+      const res = await axios.get(C.API_URL + C.API_PATH_USERS);
       console.log("Users response from axios", res);
       this.setState({ users: res.data }, () => {
         console.log("Get from state in calback", this.state);
@@ -32,11 +33,7 @@ class Users extends Component {
 
   render() {
     const users = this.state.users.map((user, i) => {
-      return (
-        <li key={user.id} className="collection-item">
-          {user.name}, {user.address + " - " + user.city}{" "}
-        </li>
-      );
+      return <User key={user.id} user={user} />;
     });
 
     return (

@@ -5,20 +5,20 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="blue darker-3">
+        <nav className="blue darker-5">
           <div className="nav-wrapper">
             <a href="/" className="center brand-logo">
               Users
             </a>
             <ul className="right">
               <li>
-                <Link to="/users">
-                  <i className="fa fa-users" /> Users
+                <Link to="/">
+                  <i className="fa fa-home" /> Home
                 </Link>
               </li>
               <li>
-                <Link to="/meetups">
-                  <i className="fa fa-list" /> Meetups
+                <Link to="/users">
+                  <i className="fa fa-users" /> Users
                 </Link>
               </li>
               <li>
